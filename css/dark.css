@@ -1,0 +1,15 @@
+body {
+	background-color: #333338;
+	color: lightgrey;
+}
+input, button {
+	background: grey;
+	color: white;
+}
+a {
+	color: lightblue;
+}
+#wiki-statistics div{
+	background: grey;
+	color: white;
+}

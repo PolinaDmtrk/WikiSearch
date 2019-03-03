@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+  <title>WikiSearch</title>
+  <link rel="shortcut icon" href="" />
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.9.2.css">
+</head>
+<body>
+  <div id="app">
+    <div id="search-header">
+      <div id="search">
+        <form id="search-form">
+          <input id="search-form__input" type="text">
+          <input id="search-form__button" type="submit" value="Найти">
+        </form>
+      </div>
+      <div>
+        <button id="getOldQueries">Получить ранние запросы</button>
+        <button id="getStatistics">Получить время загрузки</button>
+        <button id="switchStyle">Сменить тему</button>
+      </div>
+    </div>
+    <div id="wiki-items">
+    </div>
+    <div id="wiki-data">
+    </div>
+    <div id="wiki-queries">
+      <table>
+        <thead>
+          <tr>
+            <th>Запрос<button id="sortQueries">sort</button><input id="filterQuery" type="text"/></th>
+            <th>Время запроса<button id="sortQueriesTime">sort</button><input id="filterQueryTime" type="text"/></th>
+            <th>Время загрузки<button id="sortQueriesLoadTime">sort</button><input id="filterQueryLoadTime" type="text"/></th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+    <div id="wiki-statistics"></div>
+  </div>
+  <!-- <div id="qunit"></div> -->
+  <!-- <div id="qunit-fixture"></div> -->
+  <!-- <script src="https://code.jquery.com/qunit/qunit-2.9.2.js"></script> -->
+  <!-- <script src="tests.js"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="main.js"></script>
+<!-- <script src="../src/filters.js"></script> -->
+</body>
+</html>

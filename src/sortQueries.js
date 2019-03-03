@@ -47,16 +47,8 @@ export function sortQueries(sortParam) {
 	}
 	drawQueries(queries);
 
-	const input = document.getElementById('filterQuery');
-	const input2 = document.getElementById('filterQueryTime');
-	const input3 = document.getElementById('filterQueryLoadTime');
-	if (input.value !== '') {
-		filterQueries('byQuery');
-	}
-	if (input2.value !== '') {
-		filterQueries('byQueryTime');
-	}
-	if (input3.value !== '') {
-		filterQueries('byQueryLoadTime');
+	const filters = $('#wiki-queries table').find('.filter');
+	if (filters.value !== '') {
+		filterQueries($('#wiki-queries table'));
 	}
 }

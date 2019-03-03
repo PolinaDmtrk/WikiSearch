@@ -53,15 +53,9 @@ $(document).ready ( () => {
 	$('#sortQueriesLoadTime').on('click', () => {
 		sortQueries('byQueryLoadTime');
 	});
-
-	$('#filterQuery').on('input', () => {
-		filterQueries('byQuery');
-	});
-	$('#filterQueryTime').on('input', () => {
-		filterQueries('byQueryTime');
-	});
-	$('#filterQueryLoadTime').on('input', () => {
-		filterQueries('byQueryLoadTime');
+	
+	$('.filter').on('input', function () {
+	    filterQueries($(this).parents('table'));
 	});
 
 

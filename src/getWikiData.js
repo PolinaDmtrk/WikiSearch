@@ -17,7 +17,7 @@ export function getWikiData() {
 	let updatedText;
 	tgtrimm(input.value);
 	function tgtrimm(str) {
-		updatedText = str.replace(/[^a-zA-ZА-Яа-яЁё]/gi,'').replace(/\s+/gi,', ');
+		updatedText = str.replace(/[^\s-a-zA-ZА-Яа-яЁё]/gi,'').replace(/\s+/gi,', ');
 		return updatedText;
 	}
 

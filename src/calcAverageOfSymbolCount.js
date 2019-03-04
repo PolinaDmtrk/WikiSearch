@@ -18,7 +18,6 @@ export function calcAverageOfSymbolCount(titles) {
 	setTimeout(calcAverage, 1000);
 	function calcAverage() {
 		const average = summ / titles.length;
-		$('#wiki-data').append($(`<p>Среднее количество символов по выгруженным статьям - ${average}</p>`));		
+		$('#wiki-data').append($(`<p>Среднее количество символов по выгруженным статьям - ${average}</p>`));
 	}
-	
 }

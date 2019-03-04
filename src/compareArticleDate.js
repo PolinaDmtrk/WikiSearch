@@ -14,7 +14,7 @@ export function compareArticleDate(titles) {
 			}
 		});
 	});
-	setTimeout(Comparing, 500);
+	setTimeout(Comparing, 1000);
 	function Comparing() {
 		const newestDate = dates.reduce((a, b) => { return a > b ? a : b; });
 		$.each(dates, (i,item) => {

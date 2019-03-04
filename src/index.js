@@ -3,6 +3,7 @@ import {drawQueries} from './drawQueries';
 import {sortQueries} from './sortQueries';
 import {drawStatistics} from './drawStatistics';
 import {filterQueries} from './filters';
+import {tests} from './tests';
 
 const wikiItems = document.getElementById('wiki-items');
 const wikiQueries = document.getElementById('wiki-queries');
@@ -79,6 +80,7 @@ $(document).ready ( () => {
 			localStorage.setItem('themeStyle', 'light');
 		}
 	});
+	tests();
 })
 
 

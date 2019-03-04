@@ -6,21 +6,16 @@ import {compareArticleDate} from './compareArticleDate';
 export function getWikiData() {
 	const timerStart = Date.now();
 	let loadTime = 0;
-			
-	const queryTime = getQueryTime();
+
+	const date = new Date();
+	const queryTime = getQueryTime(date);
 	const input = document.getElementById('search-form__input');
 	if (input.value == '') {
 		alert('Необходимо ввести текст в поле поиска!');
 		return;
 	}
 
-	let updatedText;
-	tgtrimm(input.value);
-	function tgtrimm(str) {
-		updatedText = str.replace(/[^\s-a-zA-ZА-Яа-яЁё]/gi,'').replace(/\s+/gi,', ');
-		return updatedText;
-	}
-
+	let updatedText = tgtrimm(input.value);
 	const encodedInput = encodeURI(updatedText);
 	const url = 'http://ru.wikipedia.org/w/api.php?action=opensearch&origin=*&search='+encodedInput+'&profile=strict&limit=5&format=json';
 			    
@@ -43,4 +38,8 @@ export function getWikiData() {
 			updateLocalStorage(updatedText, queryTime, loadTime);
 		}
 	});
+}
+export function tgtrimm(str) {
+	let updatedText = str.replace(/[^\s-a-zA-ZА-Яа-яЁё]/gi,'');
+	return updatedText;
 }

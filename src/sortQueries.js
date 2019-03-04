@@ -2,6 +2,7 @@ import {drawQueries} from './drawQueries';
 import {filterQueries} from './filters';
 let sortCountByQuery = 1, sortCountByQueryTime = 1, sortCountByQueryLoadTime = 1;
 
+//Сортировка старых запросов в таблице
 export function sortQueries(sortParam) {
 	let queries = [];
 	const tdQuery = document.getElementsByClassName('query');
@@ -12,10 +13,13 @@ export function sortQueries(sortParam) {
 		queries.push({query: tdQuery[i].textContent, queryTime: tdQueryTime[i].textContent, loadTime: tdQueryLoadTime[i].textContent});
 	});
 
+	//Определение, по какому столбцу делать сортировку
 	if (sortParam == 'byQuery') {
+		//Если ранее уже была выполнена сортировка, то столбцы будут отображены в обратном порядке
 		if (sortCountByQuery != 1) {
 			queries.reverse();
 		}
+		//Если сортировки ранее не было, то будет выполнено полное сравнение всех параметров
 		else {
 			queries.sort((a,b) => {
 		    	return a.query.localeCompare(b.query);
@@ -45,8 +49,10 @@ export function sortQueries(sortParam) {
 		}
 		sortCountByQuery = 1; sortCountByQueryTime = 1; sortCountByQueryLoadTime++;
 	}
+	//Перерисовка новой отсортированной таблицы
 	drawQueries(queries);
 
+	//Если таблица была отфильтрованна до сортировки, то фильтрация повторяется после перерисовки
 	const filters = $('#wiki-queries table').find('.filter');
 	if (filters.value !== '') {
 		filterQueries($('#wiki-queries table'));

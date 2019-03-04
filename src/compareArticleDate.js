@@ -1,5 +1,7 @@
+//Получение информации о самой новой и старой статье
 export function compareArticleDate(titles) {
 	let dates = [], articles = [];
+	//Получение даты обновления по всем полученным ранее статьям
 	$.each(titles, (i,item) => {
 		const url = `https://ru.wikipedia.org/w/api.php?action=query&origin=*&prop=revisions&titles=${item}&format=json`;
 		$.ajax ({
@@ -15,6 +17,7 @@ export function compareArticleDate(titles) {
 		});
 	});
 	setTimeout(Comparing, 1000);
+	//Сравнение дат и выявление самой новой и старой. Отображение информации на странице
 	function Comparing() {
 		const newestDate = dates.reduce((a, b) => { return a > b ? a : b; });
 		$.each(dates, (i,item) => {

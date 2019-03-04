@@ -1,3 +1,4 @@
+//Фильтрация таблицы со старыми запросами
 export function filterQueries(table) {
     const filters = table.find('.filter');
     const rows = table.find('.userQuery');

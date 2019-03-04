@@ -1,3 +1,4 @@
+//Отрисовка таблицы со старыми запросами
 export function drawQueries(queries) {
     $('#wiki-queries tbody').empty();
     $.each(queries, (i,item) => {

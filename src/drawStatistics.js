@@ -1,3 +1,4 @@
+//Отрисовка графического отображения времени выполнения запроса
 export function drawStatistics() {
 	$('#wiki-statistics').empty();
 	const queries = JSON.parse(localStorage.getItem('queries'));

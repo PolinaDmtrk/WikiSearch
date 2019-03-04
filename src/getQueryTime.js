@@ -1,3 +1,4 @@
+//getQueryTime меняет формат полученной даты по шаблону
 export function getQueryTime(date) {
 
 	const day = ('0'+date.getDate()).slice(-2);

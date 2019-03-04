@@ -12,18 +12,22 @@ const wikiStatistics = document.getElementById('wiki-statistics');
 
 $(document).ready ( () => {
 
+	//Добавление стилей определенной темы
 	let head = document.head;
 	let link = document.createElement('link');
 	link.rel = 'stylesheet';
 
+	//Если ранее была выбрана тема 'dark', то устанавливаются соответствующие стили
 	if (localStorage.getItem('themeStyle') === 'dark') {
 		link.href = '../css/dark.css';
 	}
+	//По умолчанию устанавливается тема 'light'
 	else {
 		link.href = '../css/light.css';
 	}
 	head.appendChild(link);
 
+	//При нажатии на кнопку "Найти" выполняется запрос в Википедию и отображение результатов
 	$('#search-form').submit( (event) => {
 		event.preventDefault();
 
@@ -35,6 +39,7 @@ $(document).ready ( () => {
 		wikiStatistics.style.display = 'none';
 	});
 
+	//При нажатии на кнопку "Получить старые запросы" отрисовывается таблица со старыми запросами
 	$('#getOldQueries').on('click', () => {
 		const userQueries = JSON.parse(localStorage.getItem('queries'));
 		drawQueries(userQueries);
@@ -45,6 +50,7 @@ $(document).ready ( () => {
 		wikiStatistics.style.display = 'none';
     });
 
+	//Сортировка таблицы со старыми запросами при нажатии на кнопки "Sort"
 	$('#sortQueries').on('click', () => {
 		sortQueries('byQuery');
 	});
@@ -54,12 +60,13 @@ $(document).ready ( () => {
 	$('#sortQueriesLoadTime').on('click', () => {
 		sortQueries('byQueryLoadTime');
 	});
-	
+		
+	//Фильтрация таблицы со старыми запросами
 	$('.filter').on('input', function () {
 	    filterQueries($(this).parents('table'));
 	});
 
-
+	//Графическое отображение времени выполнения запросов 
 	$('#getStatistics').on('click', () => {
 	
 		drawStatistics();
@@ -70,7 +77,9 @@ $(document).ready ( () => {
 		wikiStatistics.style.display = 'flex';
 	});
 
+	//Изменение темы стилей по нажатию на кнопку "Сменить тему"
 	$('#switchStyle').on('click', () => {
+		//Информация о выбранной теме сохраняется в локальном хранилище
 		if (localStorage.getItem('themeStyle') == 'light') {
 			link.href = '../css/dark.css';
 			localStorage.setItem('themeStyle', 'dark');
@@ -80,6 +89,7 @@ $(document).ready ( () => {
 			localStorage.setItem('themeStyle', 'light');
 		}
 	});
+	//Выполнение тестов
 	tests();
 })
 

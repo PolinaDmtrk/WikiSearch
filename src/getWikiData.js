@@ -40,8 +40,8 @@ export function getWikiData() {
 				$('#wiki-items').append($('<p>'+data[2][i]+'</p>'));
 			};
 			//Вычисление агрегированной информации по запросу
-			setTimeout(calcAverageOfSymbolCount, 100, data[1]);
-			setTimeout(compareArticleDate, 100, data[1]);
+			calcAverageOfSymbolCount (data[1]);
+			compareArticleDate(data[1]);
 			//Вычисление времени загрузки запроса
 			loadTime = Date.now()-timerStart;
 			//Добавление запроса в локальное хранилище

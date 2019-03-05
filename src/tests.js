@@ -1,5 +1,7 @@
 import {tgtrimm} from './getWikiData';
 import {getQueryTime} from './getQueryTime';
+import {calcAverage} from './calcAverageOfSymbolCount';
+import {Comparing} from './compareArticleDate';
 
 export function tests() {
 	QUnit.test( "update string", function(assert) {
@@ -10,10 +12,14 @@ export function tests() {
 	});
 	QUnit.test( "update date", function(assert) {
 		const date1 = new Date(2011, 0, 1, 12, 34, 0, 0);
-		const date2 = new Date(2011, 0, 1);
+		const date2 = new Date(2013, 11, 26);
 		const date3 = new Date(1356, 0, 1, 0, 7);
 		assert.equal(getQueryTime(date1), '01.01.2011 12:34' );
-		assert.equal(getQueryTime(date2), '01.01.2011 00:00' );
+		assert.equal(getQueryTime(date2), '26.12.2013 00:00' );
 		assert.equal(getQueryTime(date3), '01.01.1356 00:07' );
+	});
+	QUnit.test( "calc average", function(assert) {
+		assert.equal(calcAverage(50, 5), 10);
+		assert.equal(calcAverage(3945, 23), 172);
 	});
 }

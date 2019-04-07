@@ -5,16 +5,13 @@ import {drawStatistics} from './drawStatistics';
 import {filterQueries} from './filters';
 import {tests} from './tests';
 
-const wikiItems = document.getElementById('wiki-items');
-const wikiQueries = document.getElementById('wiki-queries');
-const wikiData = document.getElementById('wiki-data');
-const wikiStatistics = document.getElementById('wiki-statistics');
+const wiki = $('#wiki');
 
 $(document).ready ( () => {
 
 	//Добавление стилей определенной темы
-	let head = document.head;
-	let link = document.createElement('link');
+	const head = document.head;
+	const link = document.createElement('link');
 	link.rel = 'stylesheet';
 
 	//Если ранее была выбрана тема 'dark', то устанавливаются соответствующие стили
@@ -33,10 +30,12 @@ $(document).ready ( () => {
 
 		getWikiData();
 
-		wikiItems.style.display = 'block';
-		wikiQueries.style.display = 'none';
-		wikiData.style.display = 'block';
-		wikiStatistics.style.display = 'none';
+		//Скрытие всех основных блоков и отображение необходимых
+		$(wiki[0].children).each((i, div) => {
+			$(div).css("display","none")
+		});
+		$('#wiki-items').css("display","block");
+		$('#wiki-data').css("display","block");
 	});
 
 	//При нажатии на кнопку "Получить старые запросы" отрисовывается таблица со старыми запросами
@@ -44,21 +43,17 @@ $(document).ready ( () => {
 		const userQueries = JSON.parse(localStorage.getItem('queries'));
 		drawQueries(userQueries);
 
-		wikiItems.style.display = 'none';
-		wikiQueries.style.display = 'block';
-		wikiData.style.display = 'none';
-		wikiStatistics.style.display = 'none';
+		//Скрытие всех основных блоков и отображение необходимых
+		$(wiki[0].children).each((i, div) => {
+			$(div).css("display","none")
+		});
+		$('#wiki-queries').css("display","block");
     });
 
 	//Сортировка таблицы со старыми запросами при нажатии на кнопки "Sort"
-	$('#sortQueries').on('click', () => {
-		sortQueries('byQuery');
-	});
-	$('#sortQueriesTime').on('click', () => {
-		sortQueries('byQueryTime');
-	});
-	$('#sortQueriesLoadTime').on('click', () => {
-		sortQueries('byQueryLoadTime');
+	$('.sort').on('click', function() {
+		const clickedClass =$(this)[0].parentElement.className;
+		sortQueries(clickedClass);
 	});
 		
 	//Фильтрация таблицы со старыми запросами
@@ -71,10 +66,11 @@ $(document).ready ( () => {
 	
 		drawStatistics();
 
-		wikiItems.style.display = 'none';
-		wikiQueries.style.display = 'none';
-		wikiData.style.display = 'none';
-		wikiStatistics.style.display = 'flex';
+		//Скрытие всех основных блоков и отображение необходимых
+		$(wiki[0].children).each((i, div) => {
+			$(div).css("display","none")
+		});
+		$('#wiki-statistics').css("display","flex");
 	});
 
 	//Изменение темы стилей по нажатию на кнопку "Сменить тему"

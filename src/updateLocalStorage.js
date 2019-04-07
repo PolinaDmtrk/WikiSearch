@@ -1,6 +1,6 @@
 //Добавление нового запроса в локальное хранилище (ЛС)
-export function updateLocalStorage(query, queryTime, loadTime) {
-	let userQueries = [];
+export function updateLocalStorage(query, queryTime, queryLoadTime) {
+	const userQueries = [];
 
 	//Если ЛС не пустое, то в массив userQueries записываются все данные из ЛС 
 	if (localStorage.getItem('queries') !== null) {
@@ -14,7 +14,7 @@ export function updateLocalStorage(query, queryTime, loadTime) {
 		userQueries.shift();
 	}
 	//Добавление нового запроса сначала в массив userQueries, а затем перезапись userQueries в ЛС
-	userQueries.push({query: query, queryTime: queryTime, loadTime: loadTime});
+	userQueries.push({query: query, queryTime: queryTime, queryLoadTime: queryLoadTime});
     const arrayToJSON = JSON.stringify(userQueries);
     localStorage.setItem('queries', arrayToJSON);
 }

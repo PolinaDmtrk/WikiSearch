@@ -6,7 +6,6 @@ import {compareArticleDate} from './compareArticleDate';
 //Запрос в Википедию по API и отображение результатов
 export function getWikiData() {
 	const timerStart = Date.now();
-	let loadTime = 0;
 
 	//Получение текущего времени - времени запроса
 	const date = new Date();
@@ -19,7 +18,7 @@ export function getWikiData() {
 	}
 
 	//tgtrimm удаляет все лишние символы из строки запроса, кроме пробелов и дефисов
-	let updatedText = tgtrimm(input.value);
+	const updatedText = tgtrimm(input.value);
 	const encodedInput = encodeURI(updatedText);
 	const url = 'http://ru.wikipedia.org/w/api.php?action=opensearch&origin=*&search='+encodedInput+'&profile=strict&limit=5&format=json';
 
@@ -43,7 +42,7 @@ export function getWikiData() {
 			calcAverageOfSymbolCount (data[1]);
 			compareArticleDate(data[1]);
 			//Вычисление времени загрузки запроса
-			loadTime = Date.now()-timerStart;
+			const loadTime = Date.now()-timerStart;
 			//Добавление запроса в локальное хранилище
 			updateLocalStorage(updatedText, queryTime, loadTime);
 		}
@@ -51,6 +50,6 @@ export function getWikiData() {
 }
 //tgtrimm удаляет все лишние символы из строки запроса, кроме пробелов и дефисов
 export function tgtrimm(str) {
-	let updatedText = str.replace(/[^\s-a-zA-ZА-Яа-яЁё]/gi,'');
+	const updatedText = str.replace(/[^\s-a-zA-ZА-Яа-яЁё]/gi,'');
 	return updatedText;
 }

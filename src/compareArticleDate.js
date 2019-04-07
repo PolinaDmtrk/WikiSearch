@@ -1,6 +1,6 @@
 //Получение информации о самой новой и старой статье
 export function compareArticleDate(titles) {
-	let dates = [], articles = [];
+	const dates = [], articles = [];
 	//Получение даты обновления по всем полученным ранее статьям
 	function getDate(counter) {
 		const url = `https://ru.wikipedia.org/w/api.php?action=query&origin=*&prop=revisions&titles=${titles[counter]}&format=json`;
@@ -9,7 +9,7 @@ export function compareArticleDate(titles) {
 			type: 'GET',
 			success: (data) => {
 				$.each(data.query.pages, (i,item) => {
-					let date = item.revisions[0].timestamp;
+					const date = item.revisions[0].timestamp;
 					dates.push(date);
 					articles.push({title: item.title, date: date});
 				});

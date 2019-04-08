@@ -2,7 +2,7 @@
 export function filterQueries(table) {
     const filters = table.find('.filter');
     const rows = table.find('.userQuery');
-    rows.each(function (rowIndex) {
+    rows.each(function () {
         let valid = true;
         $(this).find('td').each(function (colIndex) {
             if (filters.eq(colIndex).val()) {

@@ -4,12 +4,12 @@ body {
 div, input, button {
   color: black;
 }
-#search input[type=text] {
+.search input[type=text] {
   background: white;
 }
-#search input[type=submit] {
+.search input[type=submit] {
   background: lightgrey;
 }
-#wiki-statistics div{
-	background: lightgrey;
+.wiki-statistics div{
+  background: lightgrey;
 }

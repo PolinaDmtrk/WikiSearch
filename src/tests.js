@@ -1,7 +1,7 @@
 import {tgtrimm} from './getWikiData';
 import {getQueryTime} from './getQueryTime';
-import {calcAverage} from './calcAverageOfSymbolCount';
 import {Comparing} from './compareArticleDate';
+import {calcAverage} from './calcAverage'
 
 export function tests() {
 	QUnit.test( "update string", function(assert) {

@@ -1,8 +1,11 @@
+import {calcAverage} from './calcAverage';
 //Вычисление среднего количества символов в полученных статьях
 export function calcAverageOfSymbolCount(titles) {
 	let summ=0;
 	$('#wiki-data').empty();
 	//Получение текста статьи и вычисление его количества символов
+	getTextContent(titles.length-1);
+
 	function getTextContent(counter) {
 		const url = `https://ru.wikipedia.org/w/api.php?format=json&action=query&origin=*&prop=extracts&explaintext=&titles=${titles[counter]}`;
 		$.ajax ({
@@ -22,10 +25,4 @@ export function calcAverageOfSymbolCount(titles) {
 			}
 		});
 	}
-	getTextContent(titles.length-1);
-}
-//Вычисление среднего среди полученных значений, отображение информации
-export function calcAverage(summ, count) {
-	const average = Math.round(summ / count);
-	return average;
 }

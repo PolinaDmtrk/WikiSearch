@@ -9,7 +9,7 @@ input, button {
 a {
 	color: lightblue;
 }
-#wiki-statistics div{
+.wiki-statistics div{
 	background: grey;
 	color: white;
 }

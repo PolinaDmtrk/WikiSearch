@@ -35,8 +35,8 @@ export function getWikiData() {
 			//Отображение результатов на странице
 			$('#wiki-items').empty();
 			for (let i=0; i<data[1].length; i++) {
-				$('#wiki-items').append($('<h5><a href="'+data[3][i]+'">'+data[1][i]+'</a></h5>'));
-				$('#wiki-items').append($('<p>'+data[2][i]+'</p>'));
+				const divContent = '<h5 class="article-name"><a href="'+data[3][i]+'">'+data[1][i]+'</a></h5><p class="article-description">'+data[2][i]+'</p>'
+				$('#wiki-items').append($(`<div class="article">${divContent}<div>`));
 			};
 			//Вычисление агрегированной информации по запросу
 			calcAverageOfSymbolCount (data[1]);

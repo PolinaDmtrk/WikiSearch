@@ -9,12 +9,12 @@
   <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.9.2.css">
 </head>
 <body>
-  <div id="app">
-    <div id="search-header">
-      <div id="search">
-        <form id="search-form">
-          <input id="search-form__input" type="text">
-          <input id="search-form__button" type="submit" value="Найти">
+  <div id="app" class="container">
+    <div id="search-header" class="search-header">
+      <div class="search">
+        <form class="search-form">
+          <input id="search-form__input" class="search-form__input" type="text">
+          <input class="search-form__button" type="submit" value="Найти">
         </form>
       </div>
       <div>
@@ -23,13 +23,13 @@
         <button id="switchStyle">Сменить тему</button>
       </div>
     </div>
-    <div id="wiki">
+    <div id="wiki" class="wiki">
       <div id="wiki-items">
       </div>
       <div id="wiki-data">
       </div>
       <div id="wiki-queries">
-        <table>
+        <table class="wiki-queries">
           <thead>
             <tr>
               <th class="query">Запрос<button id="sortQueries" class="sort">sort</button><input class="filter" type="text"/></th>
@@ -41,7 +41,7 @@
           </tbody>
         </table>
       </div>
-      <div id="wiki-statistics">
+      <div id="wiki-statistics" class="wiki-statistics">
       </div>
     </div>
   </div>

@@ -1,38 +1,36 @@
-#app {
+.container {
 	font-family: Arial, sans-serif;
+	font-size: 18px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	margin: 0 10vw 0 10vw;
 }
-#app div {
-	margin-top: 10px;
+.container > div {
+	margin-top: 20px;
 }
-p {
-	margin: 0 0 20px 0;
+.article {
+	padding: 0 0 20px 0;
 }
-h5 {
+.article-name {
 	margin: 0 0 5px 0;
 }
-#search-header {
+.search-header {
 	display: flex;
+}
+.search-form__input {
+	width: 300px;
 }
 button {
 	margin: 0 10px 0 10px;
 }
-
 input, button {
 	font-size: 18px;
 	border: 1px solid grey;
 	border-radius: 8px;
 }
-#search-form__input {
-	width: 300px;
-}
-table {
-	margin-top: 5px;
-	font-size: 18px;
+.wiki-queries {
 	border: 1px solid grey;
 	border-radius: 5px;
 	border-collapse: collapse;
@@ -41,18 +39,16 @@ td, th {
 	border: 1px solid grey;
 	padding: 3px;
 }
-#wiki-statistics {
-	border: 1px solid grey;
-	margin-top: 20px;
-	padding-top: 20px;
+.wiki > div {
 	display: none;
+}
+.wiki-statistics {
+	border: 1px solid grey;
+	padding-top: 20px;
 	align-items: flex-end;
 }
-#wiki-statistics div{
+.wiki-statistics div{
 	margin: 0 5px 0 5px;
 	background: lightgrey;
 	vertical-align: middle;
-}
-#wiki-queries {
-	display: none;
 }

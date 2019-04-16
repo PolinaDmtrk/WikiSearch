@@ -1,7 +1,5 @@
 import {tgtrimm} from './getWikiData';
 import {getQueryTime} from './getQueryTime';
-import {Comparing} from './compareArticleDate';
-import {calcAverage} from './calcAverage'
 
 export function tests() {
 	QUnit.test( "update string", function(assert) {
@@ -17,9 +15,5 @@ export function tests() {
 		assert.equal(getQueryTime(date1), '01.01.2011 12:34' );
 		assert.equal(getQueryTime(date2), '26.12.2013 00:00' );
 		assert.equal(getQueryTime(date3), '01.01.1356 00:07' );
-	});
-	QUnit.test( "calc average", function(assert) {
-		assert.equal(calcAverage(50, 5), 10);
-		assert.equal(calcAverage(3945, 23), 172);
 	});
 }

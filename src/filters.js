@@ -13,10 +13,10 @@ export function filterQueries(table) {
             }
         });
         if (valid === true) {
-            $(this).css('display', '');
+            $(this).removeClass('non-visible');
         }
         else {
-            $(this).css('display', 'none');
+            $(this).addClass('non-visible');
         }
     });
 }

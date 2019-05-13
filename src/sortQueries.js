@@ -8,8 +8,9 @@ export function sortQueries(sortClass) {
 	const queries = [];
 
 	//Добавление в массив queries всех значений из таблицы для последующей сортировки
-	$('#wiki-queries tbody tr').each((i,tr) => {
+	$('#wiki-queries tbody tr').each((i, tr) => {
 		queries[i] = {};
+		queries[i].trClass = tr.className;
 		$('td', tr).each((y, td) => {
 			queries[i][td.className] = td.textContent;
 		});
@@ -24,12 +25,12 @@ export function sortQueries(sortClass) {
 		/*Проверка: если значение, приведенное к числу является NaN, то сортировка для строк,
 		  иначе сортировка для чисел*/
 		if ( isNaN( Number(queries[0][sortClass] )) ) {
-			queries.sort((a,b) => {
+			queries.sort((a, b) => {
 				return a[sortClass].localeCompare(b[sortClass]);
 			});
 		}
 		else {
-			queries.sort((a,b) => {
+			queries.sort((a, b) => {
 			   	return a.queryLoadTime - b.queryLoadTime;
 			});
 		}
@@ -39,10 +40,4 @@ export function sortQueries(sortClass) {
 
 	//Перерисовка новой отсортированной таблицы
 	drawQueries(queries);
-
-	//Если таблица была отфильтрованна до сортировки, то фильтрация повторяется после перерисовки
-	const filters = $('#wiki-queries table').find('.filter');
-	if (filters.value !== '') {
-		filterQueries($('#wiki-queries table'));
-	}
 }

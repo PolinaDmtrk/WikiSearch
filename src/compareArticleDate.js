@@ -14,11 +14,10 @@ export function compareArticleDate(titles) {
   		return getAPI(url)
 	  		.then(
 				data => {
-					$.each(data.query.pages, (i, item) => {
-						const date = item.revisions[0].timestamp;
-						dates.push(date);
-						articles.push({title: item.title, date: date});
-					});
+					const dataKeys = Object.keys(data.query.pages);
+					const date = data.query.pages[dataKeys[0]].revisions[0].timestamp;
+					dates.push(date);
+					articles.push({title: data.query.pages[dataKeys[0]].title, date: date});
 				})
 	  		.catch(error => console.error('Error:', error));
   	})).then(

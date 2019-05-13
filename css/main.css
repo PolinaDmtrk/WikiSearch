@@ -52,3 +52,6 @@ td, th {
 	background: lightgrey;
 	vertical-align: middle;
 }
+.non-visible {
+	display: none;
+}

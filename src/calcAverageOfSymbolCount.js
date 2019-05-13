@@ -13,10 +13,9 @@ export function calcAverageOfSymbolCount(titles) {
   		return getAPI(url)
 	  		.then(
 				data => {
-					$.each(data.query.pages, (i, item) => {
-						const content = item.extract;
-						summ = summ + content.length;
-					});
+					const dataKeys = Object.keys(data.query.pages);
+					const content = data.query.pages[dataKeys[0]].extract;
+					summ = summ + content.length;
 				})
 	  		.catch(error => console.error('Error:', error));
   	})).then(

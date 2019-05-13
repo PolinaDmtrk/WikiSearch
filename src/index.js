@@ -34,7 +34,16 @@ $(document).ready ( () => {
 
 	//При нажатии на кнопку "Получить старые запросы" отрисовывается таблица со старыми запросами
 	$('#getOldQueries').on('click', () => {
+
+		// Очищение полей фильтров
+		$('#wiki-queries input').each((i, input) => {
+			input.value = '';
+		});
+
 		const userQueries = JSON.parse(localStorage.getItem('queries'));
+		$(userQueries).each((i, item) => {
+			userQueries[i].trClass = 'userQuery';
+		});
 		drawQueries(userQueries);
 
 		//Скрытие всех основных блоков и отображение необходимых
@@ -42,6 +51,7 @@ $(document).ready ( () => {
 			$(div).css('display', 'none')
 		});
 		$('#wiki-queries').css('display','block');
+
     });
 
 	//Сортировка таблицы со старыми запросами при нажатии на кнопки "Sort"
